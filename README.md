@@ -57,3 +57,6 @@ The dataset satisfies assignment constraints:
 - CSV upload for test data
 - Model selection dropdown
 - Prediction output display
+- Display of evaluation metrics
+- Confusion matrix or classification report
+
