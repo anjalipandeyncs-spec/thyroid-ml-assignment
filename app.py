@@ -17,17 +17,15 @@ if uploaded_file:
 
     scaler = joblib.load("model/scaler.pkl")
     model = joblib.load(f"model/{model_name}.pkl")
-
-    # Get training feature names
-    train_cols = model.feature_names_in_
+    feature_names = joblib.load("model/feature_names.pkl")
 
     # Add missing columns
-    for col in train_cols:
+    for col in feature_names:
         if col not in data.columns:
             data[col] = 0
 
     # Remove extra columns and align order
-    data = data[train_cols]
+    data = data[feature_names]
 
     # Scale
     data_scaled = scaler.transform(data)
